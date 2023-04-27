@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
-class AudioController extends StatelessWidget {
+class AudioController extends StatefulWidget {
   final AudioPlayer audioPlayer;
 
   const AudioController({
@@ -10,13 +10,18 @@ class AudioController extends StatelessWidget {
   });
 
   @override
+  State<AudioController> createState() => _AudioControllerState();
+}
+
+class _AudioControllerState extends State<AudioController> {
+  @override
   Widget build(BuildContext context) {
-    print('audioPlayer--> $audioPlayer');
+    print('audioPlayer--> ${widget.audioPlayer}');
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-          onPressed: audioPlayer.seekToPrevious,
+          onPressed: widget.audioPlayer.seekToPrevious,
           iconSize: 60,
           color: Colors.white,
           icon: const Icon(
@@ -24,7 +29,7 @@ class AudioController extends StatelessWidget {
           ),
         ),
         StreamBuilder<PlayerState>(
-          stream: audioPlayer.playerStateStream,
+          stream: widget.audioPlayer.playerStateStream,
           builder: (context, snapshot) {
             print('snapshot--> $snapshot');
             final playerState = snapshot.data;
@@ -35,7 +40,7 @@ class AudioController extends StatelessWidget {
 
             if (!(playing ?? false)) {
               return IconButton(
-                onPressed: audioPlayer.play,
+                onPressed: widget.audioPlayer.play,
                 iconSize: 80,
                 color: Colors.white,
                 icon: const Icon(
@@ -44,7 +49,7 @@ class AudioController extends StatelessWidget {
               );
             } else if (processingState != ProcessingState.completed) {
               return IconButton(
-                onPressed: audioPlayer.pause,
+                onPressed: widget.audioPlayer.pause,
                 iconSize: 80,
                 color: Colors.white,
                 icon: const Icon(Icons.pause_rounded),
@@ -59,7 +64,7 @@ class AudioController extends StatelessWidget {
           },
         ),
         IconButton(
-          onPressed: audioPlayer.seekToNext,
+          onPressed: widget.audioPlayer.seekToNext,
           iconSize: 60,
           color: Colors.white,
           icon: const Icon(
