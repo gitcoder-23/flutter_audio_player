@@ -153,19 +153,20 @@ class _AudioPlayerPageState extends State<AudioPlayerPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             StreamBuilder(
-                stream: _audioPlayer.sequenceStateStream,
-                builder: (context, snapshot) {
-                  final state = snapshot.data;
-                  if (state?.sequence.isEmpty ?? true) {
-                    return const SizedBox();
-                  }
-                  final metadata = state!.currentSource!.tag as MediaItem;
-                  return MediaMetaData(
-                    imageUrl: metadata.artUri.toString(),
-                    title: metadata.title,
-                    artist: metadata.artist ?? '',
-                  );
-                }),
+              stream: _audioPlayer.sequenceStateStream,
+              builder: (context, snapshot) {
+                final state = snapshot.data;
+                if (state?.sequence.isEmpty ?? true) {
+                  return const SizedBox();
+                }
+                final metadata = state!.currentSource!.tag as MediaItem;
+                return MediaMetaData(
+                  imageUrl: metadata.artUri.toString(),
+                  title: metadata.title,
+                  artist: metadata.artist ?? '',
+                );
+              },
+            ),
             const SizedBox(height: 20),
             StreamBuilder<PositionData>(
               stream: _positionDataStream,
