@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_audio_player/pages/AudioPlayerPage.dart';
+import 'package:flutter_audio_player/pages/singleaudio/SingleAudioPlayerPage.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
 Future<void> main() async {
@@ -7,9 +7,9 @@ Future<void> main() async {
     androidNotificationChannelId: 'com.ryanheise.bg_demo.channel.audio',
     androidNotificationChannelName: 'Audio playback',
     androidNotificationOngoing: true,
-    // androidStopForegroundOnPause: true,
-    // fastForwardInterval: const Duration(seconds: 10),
-    // rewindInterval: const Duration(seconds: 10),
+    androidStopForegroundOnPause: true,
+    fastForwardInterval: const Duration(seconds: 10),
+    rewindInterval: const Duration(seconds: 10),
   );
   runApp(const MyApp());
 }
@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const SingleAudioPlayerPage(),
-      home: const AudioPlayerPage(),
+      home: const SingleAudioPlayerPage(),
+      // home: const AudioPlayerPage(),
     );
   }
 }
