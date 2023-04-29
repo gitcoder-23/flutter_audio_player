@@ -37,52 +37,57 @@ class _SingleAudioControlsState extends State<SingleAudioControls> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<PlayerState>(
-      stream: widget.singleAudioPlayer.playerStateStream,
-      builder: (context, snapshot) {
-        final playerState = snapshot.data;
-        final processingState = playerState?.processingState;
-        final playing = playerState?.playing;
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        StreamBuilder<PlayerState>(
+          stream: widget.singleAudioPlayer.playerStateStream,
+          builder: (context, snapshot) {
+            final playerState = snapshot.data;
+            final processingState = playerState?.processingState;
+            final playing = playerState?.playing;
 
-        isLoading = processingState == ProcessingState.loading ||
-            processingState == ProcessingState.buffering;
+            isLoading = processingState == ProcessingState.loading ||
+                processingState == ProcessingState.buffering;
 
-        print('allStates--> $playerState, $processingState, $playing');
+            print('allStates--> $playerState, $processingState, $playing');
 
-        if (!(playing ?? false)) {
-          return IconButton(
-            onPressed: widget.singleAudioPlayer.play,
-            iconSize: 80,
-            color: Colors.white,
-            icon: const Icon(Icons.play_arrow_rounded),
-          );
-        } else if (processingState != ProcessingState.completed) {
-          return (IconButton(
-            onPressed: widget.singleAudioPlayer.pause,
-            iconSize: 80,
-            color: Colors.white,
-            icon: const Icon(Icons.pause_rounded),
-          ));
-        } else if (snapshot.data?.processingState ==
-            ProcessingState.completed) {
-          playerOnStop();
-          // Future.delayed(const Duration(seconds: 2), () {
-          //   // widget.singleAudioPlayer.pause();
-          //   widget.singleAudioPlayer.stop();
-          //   widget.singleAudioPlayer.seek(Duration.zero);
-          // });
-        }
-        return isLoading
-            ? const CircularProgressIndicator(
-                color: Colors.blueAccent,
-                strokeWidth: 3,
-              )
-            : const Icon(
-                Icons.play_arrow_rounded,
-                size: 80,
+            if (!(playing ?? false)) {
+              return IconButton(
+                onPressed: widget.singleAudioPlayer.play,
+                iconSize: 80,
                 color: Colors.white,
+                icon: const Icon(Icons.play_arrow_rounded),
               );
-      },
+            } else if (processingState != ProcessingState.completed) {
+              return (IconButton(
+                onPressed: widget.singleAudioPlayer.pause,
+                iconSize: 80,
+                color: Colors.white,
+                icon: const Icon(Icons.pause_rounded),
+              ));
+            } else if (snapshot.data?.processingState ==
+                ProcessingState.completed) {
+              playerOnStop();
+              // Future.delayed(const Duration(seconds: 2), () {
+              //   // widget.singleAudioPlayer.pause();
+              //   widget.singleAudioPlayer.stop();
+              //   widget.singleAudioPlayer.seek(Duration.zero);
+              // });
+            }
+            return isLoading
+                ? const CircularProgressIndicator(
+                    color: Colors.blueAccent,
+                    strokeWidth: 3,
+                  )
+                : const Icon(
+                    Icons.play_arrow_rounded,
+                    size: 80,
+                    color: Colors.white,
+                  );
+          },
+        ),
+      ],
     );
   }
 }
