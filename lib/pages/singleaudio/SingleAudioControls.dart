@@ -16,7 +16,7 @@ class SingleAudioControls extends StatefulWidget {
 }
 
 class _SingleAudioControlsState extends State<SingleAudioControls> {
-  // bool audioLoading = false;
+  bool isLoading = false;
 
   playerOnStop() {
     if (widget.singleAudioPlayer != null) {
@@ -29,16 +29,23 @@ class _SingleAudioControlsState extends State<SingleAudioControls> {
   }
 
   @override
+  void dispose() {
+    widget.singleAudioPlayer.stop();
+    widget.singleAudioPlayer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
+    return StreamBuilder<PlayerState>(
       stream: widget.singleAudioPlayer.playerStateStream,
       builder: (context, snapshot) {
         final playerState = snapshot.data;
         final processingState = playerState?.processingState;
         final playing = playerState?.playing;
 
-        const audioLoading =
-            ProcessingState.loading ?? ProcessingState.buffering;
+        isLoading = processingState == ProcessingState.loading ||
+            processingState == ProcessingState.buffering;
 
         print('allStates--> $playerState, $processingState, $playing');
 
@@ -65,7 +72,7 @@ class _SingleAudioControlsState extends State<SingleAudioControls> {
           //   widget.singleAudioPlayer.seek(Duration.zero);
           // });
         }
-        return (audioLoading == true)
+        return isLoading
             ? const CircularProgressIndicator(
                 color: Colors.blueAccent,
                 strokeWidth: 3,
