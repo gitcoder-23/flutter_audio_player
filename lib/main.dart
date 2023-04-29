@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_audio_player/pages/singleaudio/SingleAudioPlayerPage.dart';
+import 'package:flutter_audio_player/pages/AudioPlayerPage.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
 Future<void> main() async {
@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SingleAudioPlayerPage(),
+      // home: const SingleAudioPlayerPage(),
+      home: const AudioPlayerPage(),
     );
   }
 }
