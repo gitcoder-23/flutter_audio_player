@@ -7,3 +7,7 @@ https://stackoverflow.com/questions/71621109/just-audio-audio-player-after-compl
 
 /// Tools  service issue fixed add 
 xmlns:tools="http://schemas.android.com/tools"
+
+
+// Audio service
+https://suragch.medium.com/background-audio-in-flutter-with-audio-service-and-just-audio-3cce17b4a7d
