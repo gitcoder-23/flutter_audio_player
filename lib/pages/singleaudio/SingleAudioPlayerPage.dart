@@ -60,6 +60,7 @@ class _SingleAudioPlayerPageState extends State<SingleAudioPlayerPage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        title: const Text('Single Audio Player'),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(

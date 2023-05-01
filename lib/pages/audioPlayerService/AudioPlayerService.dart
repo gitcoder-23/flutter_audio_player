@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AudioPlayerServicePage extends StatelessWidget {
+class AudioPlayerServicePage extends StatefulWidget {
   const AudioPlayerServicePage({super.key});
 
+  @override
+  State<AudioPlayerServicePage> createState() => _AudioPlayerServicePageState();
+}
+
+class _AudioPlayerServicePageState extends State<AudioPlayerServicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
