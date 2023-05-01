@@ -20,7 +20,9 @@ https://stackoverflow.com/questions/61815088/is-there-a-way-to-fast-forward-usin
 https://youtu.be/MW_QAdzuoW0
 https://suragch.medium.com/background-audio-in-flutter-with-audio-service-and-just-audio-3cce17b4a7d
 
+// Here youtube available
 https://itnext.io/create-an-awesome-background-running-music-player-like-amazon-music-in-flutter-341a59efa936
 
+https://morioh.com/p/a5109b0afeaf
 // By get package
 https://suragch.medium.com/background-audio-in-flutter-with-audio-service-and-just-audio-3cce17b4a7d
