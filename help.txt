@@ -8,9 +8,19 @@ https://stackoverflow.com/questions/71621109/just-audio-audio-player-after-compl
 /// Tools  service issue fixed add 
 xmlns:tools="http://schemas.android.com/tools"
 
+// just_audio
+rewind & Forward----
+Is there a way to fast forward using just_audio?
+https://stackoverflow.com/questions/61815088/is-there-a-way-to-fast-forward-using-just-audio
+
 
 // Audio service
 
 // Some Help
 https://youtu.be/MW_QAdzuoW0
+https://suragch.medium.com/background-audio-in-flutter-with-audio-service-and-just-audio-3cce17b4a7d
+
+https://itnext.io/create-an-awesome-background-running-music-player-like-amazon-music-in-flutter-341a59efa936
+
+// By get package
 https://suragch.medium.com/background-audio-in-flutter-with-audio-service-and-just-audio-3cce17b4a7d
