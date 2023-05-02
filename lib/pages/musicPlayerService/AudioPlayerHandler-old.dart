@@ -17,32 +17,15 @@ Future<AudioHandler> initAudioService() async {
   );
 }
 
-class AudioPlayerHandler extends BaseAudioHandler with SeekHandler {
-  // static final _item = MediaItem(
-  //   id: 'https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3',
-  //   album: "Science Friday",
-  //   title: "A Salute To Head-Scratching Science",
-  //   artist: "Science Friday and WNYC Studios",
-  //   duration: const Duration(milliseconds: 5739820),
-  //   artUri: Uri.parse(
-  //       'https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg'),
-  // );
-
+class AudioPlayerHandler extends BaseAudioHandler
+    with QueueHandler, SeekHandler {
   final _player = AudioPlayer();
 
   /// Initialise our audio handler.
-  // AudioPlayerHandler() {
-  //   _player.playbackEventStream.map(_transformEvent).pipe(playbackState);
-
-  //   _player.setLoopMode(LoopMode.all);
-  // }
-
   AudioPlayerHandler() {
     _player.playbackEventStream.map(_transformEvent).pipe(playbackState);
 
-    // mediaItem.add(_item);
-
-    // _player.setAudioSource(AudioSource.uri(Uri.parse(_item.id)));
+    _player.setLoopMode(LoopMode.all);
   }
 
   @override
@@ -70,6 +53,15 @@ class AudioPlayerHandler extends BaseAudioHandler with SeekHandler {
       Uri.parse(mediaItem.id),
       tag: mediaItem,
     );
+  }
+
+  @override
+  Future<void> setRepeatMode(AudioServiceRepeatMode repeatMode) async {
+    _player.setLoopMode(repeatMode == AudioServiceRepeatMode.all
+        ? LoopMode.all
+        : repeatMode == AudioServiceRepeatMode.one
+            ? LoopMode.one
+            : LoopMode.off);
   }
 
   @override

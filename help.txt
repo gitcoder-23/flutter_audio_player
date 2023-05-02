@@ -48,7 +48,7 @@ https://suragch.medium.com/background-audio-in-flutter-with-audio-service-and-ju
 
 
 
-
+https://www.coderzheaven.com/2020/06/24/create-an-awesome-background-running-music-player-like-amazon-music-in-flutter/
 https://stackoverflow.com/questions/61815088/is-there-a-way-to-fast-forward-using-just-audio
 https://stackoverflow.com/questions/64814385/specifying-background-audio-controls-in-flutter-audio-service
 https://flutterawesome.com/wraps-around-your-existing-audio-to-allow-it-to-run-in-the-background/
