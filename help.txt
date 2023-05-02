@@ -54,4 +54,5 @@ https://stackoverflow.com/questions/64814385/specifying-background-audio-control
 https://flutterawesome.com/wraps-around-your-existing-audio-to-allow-it-to-run-in-the-background/
 https://morioh.com/p/ef38cd0f5b4d
 https://morioh.com/p/a5109b0afeaf
+https://stackoverflow.com/questions/68079822/flutter-background-audio-with-progressbar
 https://itnext.io/create-an-awesome-background-running-music-player-like-amazon-music-in-flutter-341a59efa936
