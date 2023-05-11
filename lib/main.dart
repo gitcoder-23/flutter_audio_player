@@ -4,7 +4,7 @@ import 'package:flutter_audio_player/pages/musicPlayerService/AudioPlayerHandler
 import 'package:flutter_audio_player/providers/AudioStateProvider.dart';
 import 'package:provider/provider.dart';
 
-import 'pages/musicPlayerService/MusicPlayerPage.dart';
+import 'pages/singleaudio/SingleAudioPlayerPage.dart';
 
 late AudioHandler _audioHandler;
 Future<void> main() async {
@@ -42,8 +42,8 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MusicPlayerPage(),
-        // home: const SingleAudioPlayerPage(),
+        // home: const MusicPlayerPage(),
+        home: const SingleAudioPlayerPage(),
         // home: const AudioPlayerPage(),
       ),
     );
